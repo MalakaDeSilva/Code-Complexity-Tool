@@ -34,6 +34,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import size_complexity.SizeComplexity;
 import table_model.TableModel;
 
 /**
@@ -297,6 +298,8 @@ public class FXMLDocumentController implements Initializable {
 
     private void setValues() {
         ControlStructureController ctrStr = new ControlStructureController();
+        SizeComplexity sizeC = new SizeComplexity();
+        
         Utilities util = new Utilities();
         TableModel tabModel;
         list = FXCollections.observableArrayList();
@@ -312,7 +315,8 @@ public class FXMLDocumentController implements Initializable {
         try {
             while ((currentLine = buffR.readLine()) != null) {
                 tabModel = new TableModel();
-
+                
+                sizeC.CalC(currentLine);
                 if (currentLine.length() != 0) {
                     tempCtc = ctrStr.returnCtcValues(currentLine);
 

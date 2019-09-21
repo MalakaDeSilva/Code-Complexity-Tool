@@ -68,5 +68,16 @@ public class Files {
         return count;
     }
 
-    
+    public static String getFileExtension() {
+        String extension = "";
+        int i = filePath.lastIndexOf('.');
+        int p = Math.max(filePath.lastIndexOf('/'), filePath.lastIndexOf('\\'));
+
+        if (i > p) {
+            return extension = filePath.substring(i + 1);
+        } else {
+            System.out.println("Please check the directory and file name.");
+            return extension;
+        }
+    }
 }
